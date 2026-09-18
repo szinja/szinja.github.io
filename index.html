@@ -29,12 +29,268 @@
   a{color:var(--teal);text-decoration-thickness:1px;text-underline-offset:3px;}
   a:hover{color:var(--ink);}
   a:focus-visible, button:focus-visible{outline:2px solid var(--teal);outline-offset:3px;}
- 
+
   main{
     max-width:640px;
     margin:0 auto;
     padding: clamp(2.5rem, 6vw, 5rem) 1.5rem 4rem;
   }
+
+  header.hero{
+    margin-bottom: 3.25rem;
+    display:flex;
+    gap:1.75rem;
+    align-items:flex-start;
+    justify-content:space-between;
+  }
+  .hero-text{min-width:0;}
+  .kicker{
+    font-family:var(--mono);
+    font-size:.8rem;
+    color:var(--teal-dim);
+    letter-spacing:.02em;
+    margin:0 0 .9rem;
+  }
+  h1{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size: clamp(2.1rem, 6vw, 2.9rem);
+    line-height:1.12;
+    margin:0 0 .55rem;
+    color:var(--ink);
+  }
+  .role{
+    font-size:1.05rem;
+    color:#4B5955;
+    margin:0 0 1.1rem;
+    max-width:34ch;
+  }
+  .resume-link{
+    display:inline-flex;
+    align-items:center;
+    gap:.4rem;
+    font-family:var(--mono);
+    font-size:.82rem;
+    color:var(--teal);
+    border:1px solid var(--teal);
+    border-radius:3px;
+    padding:.45rem .8rem;
+  }
+  .resume-link:hover{background:var(--teal);color:var(--paper);}
+  .portrait{
+    width:112px;
+    height:112px;
+    border-radius:50%;
+    object-fit:cover;
+    flex-shrink:0;
+    border:1px solid var(--rule);
+  }
+  @media (max-width:480px){
+    header.hero{flex-direction:column-reverse; align-items:flex-start;}
+  }
+
+  section{
+    margin-bottom: 2.75rem;
+  }
+  section > h2{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:1.15rem;
+    margin:0 0 .9rem;
+    padding-bottom:.5rem;
+    border-bottom:1px solid var(--rule);
+  }
+  section p{
+    margin:0 0 1rem;
+    max-width:62ch;
+  }
+  section p:last-child{margin-bottom:0;}
+
+  .stats{
+    display:flex;
+    gap:2.25rem;
+    flex-wrap:wrap;
+    margin: 1.4rem 0 0;
+    padding-top: 1.4rem;
+    border-top:1px solid var(--rule);
+  }
+  .stat{min-width:8rem;}
+  .stat .value{
+    font-family:var(--mono);
+    font-size:1.6rem;
+    color:var(--teal);
+    display:block;
+    line-height:1;
+  }
+  .stat .label{
+    font-size:.85rem;
+    color:#5B6864;
+    display:block;
+    margin-top:.4rem;
+  }
+
+  ul.entries{
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  ul.entries li{
+    padding: 0 0 1.1rem;
+    margin: 0 0 1.1rem;
+    border-bottom:1px solid var(--rule);
+  }
+  ul.entries li:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+  .entry-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:1rem;
+    flex-wrap:wrap;
+  }
+  .entry-title{font-weight:600;}
+  .entry-meta{
+    font-family:var(--mono);
+    font-size:.8rem;
+    color:#6B7671;
+    white-space:nowrap;
+  }
+  .entry-detail{
+    color:#4B5955;
+    font-size:.97rem;
+    margin-top:.3rem;
+    max-width:60ch;
+  }
+
+  .honors{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.6rem;
+    margin-top:1rem;
+  }
+  .honors li{
+    list-style:none;
+    font-size:.85rem;
+    padding:.35rem .7rem;
+    border:1px solid var(--rule);
+    border-radius:3px;
+    color:#4B5955;
+  }
+
+  footer{
+    padding-top:1.5rem;
+    border-top:1px solid var(--rule);
+    font-size:.95rem;
+  }
+  footer .links{
+    display:flex;
+    gap:1.5rem;
+    flex-wrap:wrap;
+  }
+  footer .location{
+    color:#6B7671;
+    font-family:var(--mono);
+    font-size:.8rem;
+    margin-top:1rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    header.hero{animation: rise .5s ease-out;}
+    @keyframes rise{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:none;}}
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <header class="hero">
+    <div class="hero-text">
+      <p class="kicker">Sisipho Zinja</p>
+      <h1>Machine learning for cancer research, built to be trusted in the clinic.</h1>
+      <p class="role">MSc Artificial Intelligence (Distinction), City St George's, University of London &middot; Research Associate, UCL Cancer Institute</p>
+      <a class="resume-link" href="Zinja_MLResume26.pdf">Download résumé</a>
+    </div>
+    <img class="portrait" src="prof_pic.jpg" alt="Portrait of Sisipho Zinja" width="112" height="112">
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>I'm a researcher applying machine learning to cancer evolution and treatment resistance prediction — work that only matters if it can hold up outside a notebook. My focus is trustworthy, responsible AI in clinical and public health contexts: closing the gap between a model that performs well and one that can actually be deployed and relied on.</p>
+    <p>My MSc dissertation built a probabilistic multimodal survival model for cancer patients, combining Tree-LSTM embeddings of tumor phylogenies with clinical covariates on the TRACERx NSCLC cohort. Before this, I spent three years at Twitter working on recommendation systems and distributed ML infrastructure.</p>
+    <div class="stats">
+      <div class="stat">
+        <span class="value">0.83</span>
+        <span class="label">C-index, disease-free survival</span>
+      </div>
+      <div class="stat">
+        <span class="value">0.77</span>
+        <span class="label">C-index, overall survival</span>
+      </div>
+      <div class="stat">
+        <span class="value">TRACERx</span>
+        <span class="label">NSCLC cohort</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <ul class="entries">
+      <li>
+        <div class="entry-top">
+          <span class="entry-title">Research Associate</span>
+          <span class="entry-meta">UCL Cancer Institute</span>
+        </div>
+        <div class="entry-detail">ML models for cancer evolution and treatment resistance prediction.</div>
+      </li>
+      <li>
+        <div class="entry-top">
+          <span class="entry-title">Backend Software Engineer</span>
+          <span class="entry-meta">Twitter &middot; 3 years</span>
+        </div>
+        <div class="entry-detail">Recommendation systems and distributed ML infrastructure, including OAuth 2.0 / single sign-on, serving hundreds of millions of users.</div>
+      </li>
+      <li>
+        <div class="entry-top">
+          <span class="entry-title">Founder</span>
+          <span class="entry-meta">African Baccalaureate</span>
+        </div>
+        <div class="entry-detail">NGO focused on curriculum design across African education systems.</div>
+      </li>
+      <li>
+        <div class="entry-top">
+          <span class="entry-title">Teaching Assistant</span>
+          <span class="entry-meta">University of Rochester</span>
+        </div>
+        <div class="entry-detail">Supported 150+ students across Artificial Intelligence, Data Structures, and Java courses.</div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="honors">
+    <h2>Honors &amp; memberships</h2>
+    <ul class="honors">
+      <li>BRAID Anita Borg Scholar</li>
+      <li>Women of Color Grace Hopper Scholar</li>
+      <li>Women in Machine Learning</li>
+      <li>Black in AI — Emerging Leaders</li>
+      <li>IET Associate Member</li>
+    </ul>
+  </section>
+
+  <footer>
+    <div class="links">
+      <a href="mailto:usisipho.zinja@gmail.com">Email</a>
+      <a href="https://github.com/szinja">GitHub</a>
+      <a href="https://www.linkedin.com/in/sisipho-zinja/">LinkedIn</a>
+      <a href="https://www.researchgate.net/profile/Sisipho-Zinja">ResearchGate</a>
+      <a href="Zinja_MLResume26.pdf">Résumé</a>
+    </div>
+    <p class="location">London, UK &middot; Cape Town, South Africa</p>
+  </footer>
+
+</main>
+</body>
+</html>  }
  
   header.hero{
     margin-bottom: 3.25rem;
